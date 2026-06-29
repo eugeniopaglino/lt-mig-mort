@@ -1,11 +1,11 @@
-setwd('C:/Users/epaglino/OneDrive - University of Helsinki/projects/lt_utilities')
+setwd('C:/Users/epaglino/OneDrive - University of Helsinki/projects/lt-mig-mort')
 library(here)
 library(tinyplot)
 library(data.table)
 
 rm(list=ls())
 
-i_am('create_problematic_data.R')
+i_am('R/create_problematic_data.R')
 
 # 1. Create the table and base mortality
 dt <- data.table(age = c(0, 1, seq(5, 90, by = 5)))
@@ -18,7 +18,7 @@ dt[age == 70, mx := 0.1]                    # Age heaping spike
 dt[age >= 85, mx := mx * 0.5]                # Implausible mortality deceleration
 
 # 3. Save to CSV 
-fwrite(dt, "problematic_abridged_mx.csv")
+fwrite(dt, here('outputs','data','problematic_abridged_mx.csv'))
 
 # Quick visual check
 tinyplot(log(mx) ~ age, data = dt, type = "b", 

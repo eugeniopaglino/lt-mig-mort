@@ -1,5 +1,5 @@
 # Loading necessary packages
-setwd("C:/Users/epaglino/OneDrive - University of Helsinki/projects/lt_anneliese")
+setwd("C:/Users/epaglino/OneDrive - University of Helsinki/projects/lt-mig-mort")
 library(here)
 library(mgcv)
 library(tidyverse)
